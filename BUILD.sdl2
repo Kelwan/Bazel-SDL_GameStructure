@@ -1,0 +1,32 @@
+cc_library(
+  name = "SDL2",
+  hdrs = glob(["include/*.h"]),
+  strip_include_prefix = "include",
+  visibility = ["//visibility:public"],
+  deps = [
+    ":SDL2impl"
+  ],
+)
+
+cc_library(
+  name = "SDL2main",
+  hdrs = glob(["include/*.h"]),
+  strip_include_prefix = "include",
+  visibility = ["//visibility:public"],
+  deps = [
+    ":SDL2mainimpl"
+  ],
+)
+
+cc_import(
+  name = "SDL2impl",
+  interface_library = "lib/x64/SDL2.lib",
+  shared_library = "lib/x64/SDL2.dll",
+  visibility = ["//visibility:private"],
+)
+
+cc_import(
+  name = "SDL2mainimpl",
+  static_library = "lib/x64/SDL2main.lib",
+  visibility = ["//visibility:private"],
+)
