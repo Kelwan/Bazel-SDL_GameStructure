@@ -1,8 +1,8 @@
 
 #include "Game.h"
 
+Game* game = nullptr;
 
-Game *game = nullptr;
 
 int main(int argc, char* argv[])
 {
@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
 
   game->init("Kelwan", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, false);
   game->loadMedia();
+
 
   while(game->running()){
 

@@ -22,18 +22,48 @@ public:
   void poll();
   bool running() { return isRunning; }
 
+  void makeObject()
+
+
 private:
+  //Running state
   int count = 0;
   bool isRunning;
 
+  //For main window operation
   SDL_Window* window = NULL;
   SDL_Renderer* renderer = NULL;
 
-  SDL_Surface* testBmp = NULL;
-  SDL_Texture* bmpTexture = NULL;
-  SDL_Rect rect;
+  //For basic image loading
+  SDL_Surface* characterBmp = NULL;
+  SDL_Texture* characterTexture = NULL;
 
+  SDL_Surface* groundBmp = NULL;
+  SDL_Texture* groundTexture = NULL;
+
+  //Positioning Character
+  SDL_Rect rect;
+  int x = 10;
+  int y = 10;
+  int w = 75;
+  int h = 75;
+
+
+
+
+  //Main event
   SDL_Event event;
+
+  //Key presses
+  enum KeyPressSurfaces
+  {
+    KEY_PRESS_SURFACE_DEFAULT,
+    KEY_PRESS_SURFACE_UP,
+    KEY_PRESS_SURFACE_DOWN,
+    KEY_PRESS_SURFACE_LEFT,
+    KEY_PRESS_SURFACE_RIGHT,
+    KEY_PRESS_SURFACE_TOTAL
+  };
 
 };
 

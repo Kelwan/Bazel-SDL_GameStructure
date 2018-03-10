@@ -1,5 +1,7 @@
 
 #include "Game.h"
+#include <typeinfo>
+#include <entity.h>
 
 Game::Game()
 {}
@@ -43,14 +45,35 @@ void Game::handleEvents()
 {
   SDL_Event event;
   SDL_PollEvent(&event);
+
   switch(event.type) {
     case SDL_QUIT:
       isRunning = false;
       break;
 
     case SDL_KEYDOWN:
-      rect.x += event.motion.xrel;
-      std::cout << "KEYDOWN pressed" << std::endl;
+      switch(event.key.keysym.sym)
+      {
+        case SDLK_UP:
+          std::cout << "up has been pressed" << std::endl;
+          y-=3;
+          break;
+
+        case SDLK_DOWN:
+          std::cout << "Down key pressed" << std::endl;
+          y+=3;
+          break;
+
+        case SDLK_LEFT:
+          std::cout << "Left key pressed" << std::endl;
+          x-=3;
+          break;
+
+        case SDLK_RIGHT:
+          std::cout << "Right key pressed" << std::endl;
+          x+=3;
+          break;
+      }
       break;
 
     default:
@@ -82,24 +105,21 @@ void Game::clean()
 
 void Game::loadMedia()
 {
-  testBmp = SDL_LoadBMP("test.bmp");
-  if(testBmp)
-  {
-    std::cout << "Image has been loaded!" << std::endl;
-  }
-  bmpTexture = SDL_CreateTextureFromSurface(renderer, testBmp);
+  //std::cout << typeid("idle.bmp").name() << std::endl;
+
+
 }
 
 void Game::buildSquare()
 {
-  rect.x = 10;
-  rect.y = 10;
-  rect.w = 50;
-  rect.h = 50;
+  rect.x = x;
+  rect.y = y;
+  rect.w = w;
+  rect.h = h;
 
-  //SDL_RenderDrawRect(renderer, &rect);
+  SDL_RenderDrawRect(renderer, &rect);
   //SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
-  SDL_RenderCopy(renderer, bmpTexture, NULL, &rect);
+  SDL_RenderCopy(renderer, characterTexture, NULL, &rect);
 
 }
