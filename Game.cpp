@@ -48,8 +48,13 @@ void Game::handleEvents()
       isRunning = false;
       break;
 
-      default:
-        break;
+    case SDL_KEYDOWN:
+      rect.x += event.motion.xrel;
+      std::cout << "KEYDOWN pressed" << std::endl;
+      break;
+
+    default:
+      break;
   }
 }
 
@@ -62,8 +67,9 @@ void Game::update()
 void Game::render()
 {
   //Add stuff to renderer
-  SDL_RenderClear(renderer);
   SDL_RenderPresent(renderer);
+  SDL_RenderClear(renderer);
+
 }
 
 void Game::clean()
@@ -71,7 +77,7 @@ void Game::clean()
   SDL_DestroyWindow(window);
   SDL_DestroyRenderer(renderer);
   SDL_Quit();
-  std::cout << "Game cleaned";
+  std::cout << "Game cleaned" << std::endl;
 }
 
 void Game::loadMedia()
@@ -82,13 +88,18 @@ void Game::loadMedia()
     std::cout << "Image has been loaded!" << std::endl;
   }
   bmpTexture = SDL_CreateTextureFromSurface(renderer, testBmp);
-  SDL_ShowWindow(window);
 }
 
 void Game::buildSquare()
 {
-  rect.x = 0;
-  rect.y = 0;
+  rect.x = 10;
+  rect.y = 10;
   rect.w = 50;
   rect.h = 50;
+
+  //SDL_RenderDrawRect(renderer, &rect);
+  //SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+
+  SDL_RenderCopy(renderer, bmpTexture, NULL, &rect);
+
 }

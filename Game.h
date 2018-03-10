@@ -19,6 +19,7 @@ public:
   void clean();
   void loadMedia();
   void buildSquare();
+  void poll();
   bool running() { return isRunning; }
 
 private:
@@ -31,6 +32,9 @@ private:
   SDL_Surface* testBmp = NULL;
   SDL_Texture* bmpTexture = NULL;
   SDL_Rect rect;
+
+  SDL_Event event;
+
 };
 
 #endif /* Game_h */
