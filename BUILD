@@ -10,5 +10,6 @@ cc_binary(
   deps = [
     "@SDL2//:SDL2",
     "@SDL2//:SDL2main",
+    "@SDL2//:SDL2image",
   ],
 )

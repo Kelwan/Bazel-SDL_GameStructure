@@ -22,7 +22,7 @@ public:
   void poll();
   bool running() { return isRunning; }
 
-  void makeObject()
+  void makeObject();
 
 
 private:
