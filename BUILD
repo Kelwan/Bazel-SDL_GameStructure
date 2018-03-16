@@ -8,6 +8,8 @@ cc_binary(
     "TextureManager.cpp",
     "GameObject.h",
     "GameObject.cpp",
+    "Map.h",
+    "Map.cpp",
   ],
   deps = [
     "@SDL2//:SDL2",

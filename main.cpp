@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
   Game game;
 
-  game.init("Kelwan", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, false);
+  game.init("Kelwan", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 640, false);
   //game.loadMedia();
 
 

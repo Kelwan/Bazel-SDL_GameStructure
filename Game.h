@@ -22,6 +22,8 @@ public:
   void poll();
   bool running() { return isRunning; }
 
+  static SDL_Renderer* renderer;
+
   void makeObject();
 
 
@@ -32,7 +34,6 @@ private:
 
   //For main window operation
   SDL_Window* window = NULL;
-  SDL_Renderer* renderer = NULL;
 
   //For basic image loading
   SDL_Surface* characterBmp = NULL;
