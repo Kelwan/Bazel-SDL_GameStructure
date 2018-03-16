@@ -1,12 +1,17 @@
 
 #include "Game.h"
-#include <typeinfo>
-#include <entity.h>
+#include "TextureManager.h"
+#include "GameObject.h"
+
+GameObject* player;
 
 Game::Game()
 {}
+
 Game::~Game()
-{}
+{
+  clean();
+}
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -34,6 +39,10 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
       }
 
       isRunning = true ;
+
+
+      player = new GameObject("assets/Character1.png", renderer, 0, 0);
+
   }
   else
   {
@@ -85,13 +94,15 @@ void Game::update()
 {
   //count++;
   //std::cout << count << std::endl;
+  player->Update();
 }
 
 void Game::render()
 {
   //Add stuff to renderer
-  SDL_RenderPresent(renderer);
   SDL_RenderClear(renderer);
+  player->Render();
+  SDL_RenderPresent(renderer);
 
 }
 
@@ -105,7 +116,12 @@ void Game::clean()
 
 void Game::loadMedia()
 {
-  //std::cout << typeid("idle.bmp").name() << std::endl;
+  characterBmp = SDL_LoadBMP("idle1.bmp");
+  if(characterBmp)
+  {
+    std::cout << "Character has been loaded" << std::endl;
+    characterTexture = SDL_CreateTextureFromSurface(renderer, characterBmp);
+  }
 
 
 }

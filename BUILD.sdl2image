@@ -1,0 +1,17 @@
+
+cc_library(
+  name = "SDL2image",
+  hdrs = glob(["include/*.h"]),
+  strip_include_prefix = "include",
+  visibility = ["//visibility:public"],
+  deps = [
+    ":SDL2imageimpl"
+  ],
+)
+
+cc_import(
+  name = "SDL2imageimpl",
+  interface_library = "lib/x64/SDL2_image.lib",
+  shared_library = "lib/x64/SDL2_image.dll",
+  visibility = ["//visibility:private"],
+)

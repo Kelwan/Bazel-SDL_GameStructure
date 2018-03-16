@@ -7,7 +7,7 @@ new_http_archive(
 
 new_http_archive(
   name = "SDL2image",
-  url = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.3-win32-x86.zip",
-  build_file = "BUILD.sdl2",
+  url = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.3-VC.zip",
+  build_file = "BUILD.sdl2image",
   strip_prefix = "SDL2_image-2.0.3",
 )

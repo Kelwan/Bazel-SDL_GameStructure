@@ -4,12 +4,14 @@ cc_binary(
     "main.cpp",
     "game.cpp",
     "Game.h",
-    "Entity.h",
-    "Entity.cpp",
+    "TextureManager.h",
+    "TextureManager.cpp",
+    "GameObject.h",
+    "GameObject.cpp",
   ],
   deps = [
     "@SDL2//:SDL2",
     "@SDL2//:SDL2main",
-    "@SDL2//:SDL2image",
+    "@SDL2image//:SDL2image",
   ],
 )
