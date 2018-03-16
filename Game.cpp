@@ -8,7 +8,7 @@ GameObject* player;
 GameObject* enemy;
 //Map* map;
 
-SDL_Renderer* Game::renderer = nullptr;
+//SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()
 {}
@@ -46,8 +46,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
       isRunning = true ;
 
       //Init characters
-      player = new GameObject("assets/Character1.png", 0, 0);
-      enemy = new GameObject("assets/Character2.png", 50, 50);
+      player = new GameObject("assets/Character1.png", renderer 0, 0);
+      enemy = new GameObject("assets/Character2.png", renderer 50, 50);
 
       //Init num Map
       //map = new Map();
