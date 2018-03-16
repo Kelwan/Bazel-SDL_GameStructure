@@ -10,6 +10,7 @@ cc_binary(
     "GameObject.cpp",
     "Map.h",
     "Map.cpp",
+    "ECS.h",
   ],
   deps = [
     "@SDL2//:SDL2",
